@@ -1,0 +1,39 @@
+Snippet 1: geht rein
+    i = 0
+    j = 7
+    k = 10
+
+Snippet 2: geht nicht in den Zweig rein weil i !> 0
+    i = 0
+    j = 7
+    k = 13
+
+Snippet 3: geht rein
+    i = 0
+    j = 7
+    k = 10
+
+Snippet 4: geht nicht in den Zweig rein
+    i = 0
+    j = 7
+    k = 13
+
+Snippet 5: geht nicht in den Zweig rein weil j = 7 und damit größer als 5
+    i = 0
+    j = 8
+    k = 13
+
+Snippet 6: geht nicht in den Zweig rein weil j = 7 und damit größer als 5
+    i = 0
+    j = 8
+    k = 13
+
+Snippet 7: geht nicht in den Zweig rein weil i = 0, j wird nicht erhöht wegen logisches AND
+    i = 0
+    j = 7
+    k = 13
+
+Snippet 8: geht nicht in den Zweig rein weil i = 0, j wird erhöht wegen bitwise AND
+    i = 0
+    j = 8
+    k = 13
