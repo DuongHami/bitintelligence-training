@@ -88,10 +88,13 @@ public class Human {
     //static methode
     public static void greetPerson(Human human1, Human human2){
         System.out.println(human1.getName() + ": Hello "+ human2.getName());
+        System.out.println("---------------------------");
     }
 
     //static methode
     public static Human getChild(Human human1, Human human2, String name){
+        System.out.println(human1.getName() + " and " + human2.getName() + " just had a baby:" + name);
+        System.out.println("---------------------------");
         return new Human(name, 0);
     }
 
