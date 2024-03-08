@@ -11,6 +11,7 @@ public class BMICalc {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("How tall are you (in cm)?");
         int height = scanner.nextInt();
 
