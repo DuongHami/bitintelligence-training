@@ -10,6 +10,6 @@ class BMICalcTest {
 
     @Test
     void interpretBMIObese() {
-        assertEquals(BMICalc.interpretBMI(40.0), category.SCHWERES_ÜBERGEWICHT);
+        assertEquals(BMICalc.interpretBMI(40.0), category.SCHWERES_UBERGEWICHT);
     }
 }

@@ -3,8 +3,8 @@ import java.util.Scanner;
 enum category {
     UNTERGEWICHT,
     NORMALGEWICHT,
-    ÜBERGEWICHT,
-    SCHWERES_ÜBERGEWICHT
+    UBERGEWICHT,
+    SCHWERES_UBERGEWICHT
 
 }
 public class BMICalc {
@@ -31,15 +31,15 @@ public class BMICalc {
         return (double)weight / (height_in_m * height_in_m);
     }
 
-    public static category interpretBMI(double bmi) {
+    static category interpretBMI(double bmi) {
         if (bmi < 18.5) {
             return category.UNTERGEWICHT;
         } else if (bmi >= 18.5 && bmi < 25) {
             return category.NORMALGEWICHT;
         } else if (bmi >= 25 && bmi < 30) {
-            return category.ÜBERGEWICHT;
+            return category.UBERGEWICHT;
         } else {
-            return category.SCHWERES_ÜBERGEWICHT;
+            return category.SCHWERES_UBERGEWICHT;
         }
     }
 }
