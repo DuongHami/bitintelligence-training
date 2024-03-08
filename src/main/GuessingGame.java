@@ -10,7 +10,7 @@ public class GuessingGame {
         System.out.println("Try to guess the number between 0 - 100");
         int num = scanner.nextInt();
 
-        int passes = 0;
+        int passes = 1;
 
         while(randNum != num){
             passes++;
