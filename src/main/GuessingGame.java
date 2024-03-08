@@ -5,7 +5,7 @@ public class GuessingGame {
         Scanner scanner = new Scanner(System.in);
 
         Random rand = new Random();
-        int randNum = rand.nextInt(100);
+        int randNum = rand.nextInt(101);
 
         System.out.println("Try to guess the number between 0 - 100");
         int num = scanner.nextInt();
