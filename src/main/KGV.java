@@ -31,18 +31,18 @@ public class KGV {
         int max = Math.max(a, b);
         int min = Math.min(a, b);
 
-        int kgv = max%min;
+        int ggt = max%min;
 
-        if(kgv == 0){
+        if(ggt == 0){
             return min;
         }
 
         while(max%min != 0){
-            kgv = max%min;
+            ggt = max%min;
             max = min;
-            min = kgv;
+            min = ggt;
         }
-        return kgv;
+        return ggt;
 
     }
 }
