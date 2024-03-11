@@ -1,3 +1,5 @@
+package geometry;
+
 public class Point {
 
     private double x;
@@ -59,31 +61,5 @@ public class Point {
 
     public String toString(){
         return "x: " + this.getX() + ", y: " + this.getY();
-    }
-
-    public static void main(String[] args) {
-        Point a = new Point(2.0, 3.0);
-        Point b = new Point(1.0, 5.0);
-
-        System.out.println("Point a : " + a);
-        System.out.println("Point b : " + b);
-
-        a.addition(b);
-        System.out.println("a + b = " + a);
-
-        a.setX(2.0);
-        a.setY(3.0);
-        a.subtraction(b);
-        System.out.println("a - b = " + a);
-
-        a.setX(2.0);
-        a.setY(3.0);
-        a.multiplication(2);
-        System.out.println("a * 2 = " + a);
-
-        a.setX(2.0);
-        a.setY(3.0);
-        a.division(4);
-        System.out.println("a / 4 = " + a);
     }
 }
