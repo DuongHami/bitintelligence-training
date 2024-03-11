@@ -45,6 +45,16 @@ class VectorTest {
     }
 
     /**
+     * Positive case of kreuzprodukt
+     * Now using custom equals to compare two objects
+     */
+    @Test
+    void kreuzproduktPositive() {
+        Vector v3 = v1.kreuzprodukt(v2);
+        assertEquals(new Vector(-34, 19, -6), v3);
+    }
+
+    /**
      * Positive case of skalarprodukt
      */
     @Test
