@@ -11,6 +11,9 @@ class CircleTest extends GeometryTest{
             5.0
     );
 
+    /**
+     * Positive test for calculateCircumference
+     */
     @Override
     @Test
     void calculateCircumference() {
@@ -18,6 +21,9 @@ class CircleTest extends GeometryTest{
         assertEquals(31.416,circumference, DELTA);
     }
 
+    /**
+     * Positive test for calculateArea
+     */
     @Override
     @Test
     void calculateArea() {

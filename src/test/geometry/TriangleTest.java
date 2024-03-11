@@ -12,6 +12,9 @@ class TriangleTest extends GeometryTest{
             new Point(4, -3)
     );
 
+    /**
+     * Positive test for calculateArea
+     */
     @Override
     @Test
     void calculateArea() {
@@ -19,6 +22,9 @@ class TriangleTest extends GeometryTest{
         assertEquals(10.0, area);
     }
 
+    /**
+     * Positive test for calculateCircumference
+     */
     @Override
     @Test
     void calculateCircumference() {

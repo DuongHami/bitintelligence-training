@@ -11,6 +11,9 @@ class RectangleTest extends GeometryTest {
             new Point(4, 6)
     );
 
+    /**
+     * Positive test for calculateCircumference
+     */
     @Override
     @Test
     void calculateCircumference() {
@@ -18,6 +21,9 @@ class RectangleTest extends GeometryTest {
         assertEquals(14.0,circumference);
     }
 
+    /**
+     * Positive test for calculateArea
+     */
     @Override
     @Test
     void calculateArea() {

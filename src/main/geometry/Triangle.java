@@ -5,18 +5,36 @@ public class Triangle extends Point implements GeometricObject{
     final private Point p2;
     final private Point p3;
 
+    /**
+     *
+     * @return Point object: first corner of the triangle
+     */
     public Point getP1() {
         return p1;
     }
 
+    /**
+     *
+     * @return Point object: second corner of the triangle
+     */
     public Point getP2() {
         return p2;
     }
 
+    /**
+     *
+     * @return Point object: third corner of the triangle
+     */
     public Point getP3() {
         return p3;
     }
 
+    /**
+     * Constructor for a Triangle object
+     * @param p1 first corner of the triangle
+     * @param p2 second corner of the triangle
+     * @param p3 third corner of the triangle
+     */
     public Triangle(Point p1, Point p2, Point p3){
         this.p1 = p1;
         this.p2 = p2;
@@ -24,7 +42,7 @@ public class Triangle extends Point implements GeometricObject{
     }
 
     /**
-     * // (1/2) |x1(y2 − y3) + x2(y3 − y1) + x3(y1 − y2)|
+     * (1/2) |x1(y2 − y3) + x2(y3 − y1) + x3(y1 − y2)|
      * @return area of the triangle
      */
     @Override
@@ -36,8 +54,8 @@ public class Triangle extends Point implements GeometricObject{
     }
 
     /**
-     *
-     * @return circumfrence of the triangle
+     * very long Formula
+     * @return circumference of the triangle
      */
     @Override
     public double calculateCircumference() {
