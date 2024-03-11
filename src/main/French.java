@@ -1,4 +1,4 @@
-public class French extends Human implements HumanActions {
+public class French extends Human {
     public French(String name, int age) {
         super(name, age);
     }

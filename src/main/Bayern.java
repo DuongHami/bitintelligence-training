@@ -1,4 +1,4 @@
-public class Bayern extends German{
+public class Bayern extends German {
     public Bayern(String name, int age) {
         super(name, age);
     }

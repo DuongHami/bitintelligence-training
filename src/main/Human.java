@@ -1,4 +1,4 @@
-public class Human {
+abstract class Human implements HumanActions{
     private String name;
     private int age;
     private int hunger;
@@ -92,10 +92,19 @@ public class Human {
     }
 
     //static methode
-    public static Human getChild(Human human1, Human human2, String name){
+    /*public static Human getChild(Human human1, Human human2, String name){
         System.out.println(human1.getName() + " and " + human2.getName() + " just had a baby:" + name);
         System.out.println("---------------------------");
         return new Human(name, 0);
+    }*/
+    @Override
+    public void cook() {
+        System.out.println("I made something to eat");
+    }
+
+    @Override
+    public void drink() {
+        System.out.println("I drank some water");
     }
 
 }
