@@ -1,4 +1,4 @@
 public interface HumanActions {
-    public void cook();
-    public void drink();
+    void cook();
+    void drink();
 }
