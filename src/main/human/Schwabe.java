@@ -1,3 +1,5 @@
+package human;
+
 public class Schwabe extends German {
 
     public Schwabe(String name, int age) {
