@@ -1,7 +1,12 @@
+import human.Bayern;
+import human.French;
+import human.German;
+import human.Schwabe;
+
 public class Main {
     public static void main(String[] args) {
 //        //objekt
-//        Human Steve = new Human("Steve", 18);
+//        human.Human Steve = new human.Human("Steve", 18);
 //        Steve.getStatus();
 //        Steve.run();
 //        Steve.getStatus();
@@ -15,12 +20,12 @@ public class Main {
 //        Steve.getStatus();
 //
 //        //object
-//        Human Susi = new Human("Susi", 20);
+//        human.Human Susi = new human.Human("Susi", 20);
 //
-//        Human.greetPerson(Steve, Susi);
+//        human.Human.greetPerson(Steve, Susi);
 //
 //        //object
-//        Human Jenny = Human.getChild(Steve, Susi, "Jenny");
+//        human.Human Jenny = human.Human.getChild(Steve, Susi, "Jenny");
 //
 //        Jenny.getStatus();
 

@@ -6,7 +6,7 @@ class HumanTest {
 
     /*@Test
     void checkAging() {
-        Human Steve = new Human("Steve", 18);
+        human.Human Steve = new human.Human("Steve", 18);
         Steve.hadBirthday();
         assertEquals(Steve.getAge(), 19);
     }*/

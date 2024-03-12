@@ -1,4 +1,6 @@
-abstract class Human implements HumanActions{
+package human;
+
+abstract class Human implements HumanActions {
     private String name;
     private int age;
     private int hunger;
@@ -92,10 +94,10 @@ abstract class Human implements HumanActions{
     }
 
     //static methode
-    /*public static Human getChild(Human human1, Human human2, String name){
+    /*public static human.Human getChild(human.Human human1, human.Human human2, String name){
         System.out.println(human1.getName() + " and " + human2.getName() + " just had a baby:" + name);
         System.out.println("---------------------------");
-        return new Human(name, 0);
+        return new human.Human(name, 0);
     }*/
     @Override
     public void cook() {
