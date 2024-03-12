@@ -1,6 +1,6 @@
 package geometry;
 
-public class Triangle extends Point implements GeometricObject{
+public class Triangle extends GeometricObject{
     final private Point p1;
     final private Point p2;
     final private Point p3;

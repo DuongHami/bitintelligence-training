@@ -1,6 +1,6 @@
 package geometry;
 
-public class Circle extends Point implements GeometricObject{
+public class Circle extends GeometricObject{
     final private Point center;
     final private double radius;
 

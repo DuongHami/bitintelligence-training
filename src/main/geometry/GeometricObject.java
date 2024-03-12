@@ -1,7 +1,7 @@
 package geometry;
 
-public interface GeometricObject {
+public abstract class GeometricObject {
 
-    double calculateCircumference();
-    double calculateArea();
+    abstract double calculateCircumference();
+    abstract double calculateArea();
 }

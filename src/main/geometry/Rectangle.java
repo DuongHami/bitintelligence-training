@@ -1,6 +1,6 @@
 package geometry;
 
-public class Rectangle extends Point implements GeometricObject{
+public class Rectangle extends GeometricObject{
     final private Point p1;
     final private Point p2;
 
