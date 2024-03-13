@@ -46,4 +46,21 @@ class PersonTest {
         assertNotEquals(p1, p3);
     }
 
+//    @Test
+//    void shallowCopy(){
+//        Person[] personlist = p1.shallowCopy(5);
+//        assertEquals(p1.getAge(), personlist[0].getAge());
+//
+//        personlist[3].setAge(50);
+//        assertEquals(p1.getAge(), personlist[4].getAge());
+//    }
+//
+//    @Test
+//    void shallowCopyStudent(){
+//        Student susi = new Student(25, "C", "D", 180, 100);
+//        Person[] personlist = susi.shallowCopy(3);
+//        for(int i = 0; i < 3; i++){
+//            System.out.println(personlist[i]);
+//        }
+//    }
 }

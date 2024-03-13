@@ -1,17 +1,18 @@
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Person {
-    private int age;
+    private Integer age;
     private String firstname;
     private String lastname;
-    private int height;
-    private int weight;
+    private Integer height;
+    private Integer weight;
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -31,23 +32,23 @@ public class Person {
         this.lastname = lastname;
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 
-    public Person(int age, String firstname, String lastname, int height, int weight) {
+    public Person(Integer age, String firstname, String lastname, Integer height, Integer weight) {
         this.age = age;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -59,12 +60,31 @@ public class Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Person person)) return false;
-        return this.getAge() == person.getAge() && this.getHeight() == person.getHeight() && this.getWeight() == person.getWeight() &&
-                Objects.equals(this.getFirstname(), person.getFirstname()) && Objects.equals(this.getLastname(), person.getLastname());
+        return Objects.equals(age, person.age) &&
+                Objects.equals(firstname, person.firstname) &&
+                Objects.equals(lastname, person.lastname) &&
+                Objects.equals(height, person.height) &&
+                Objects.equals(weight, person.weight);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getAge(), this.getFirstname(), this.getLastname(), this.getHeight(), this.getWeight());
+        return Objects.hash(age, firstname, lastname, height, weight);
     }
+
+//    public Person[] shallowCopy(int copynums){
+//        Person[] personlist = new Person[copynums];
+//        Arrays.fill(personlist, this);
+//        return personlist;
+//    }
+//
+//    public Person deepCopy(){
+//        return new Person(
+//                this.getAge(),
+//                this.getFirstname(),
+//                this.getLastname(),
+//                this.getHeight(),
+//                this.getWeight()
+//        );
+//    }
 }
