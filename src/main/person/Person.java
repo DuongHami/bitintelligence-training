@@ -1,7 +1,8 @@
-import java.util.Arrays;
+package person;
+
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person> {
     private Integer age;
     private String firstname;
     private String lastname;
@@ -72,4 +73,19 @@ public class Person {
         return Objects.hash(age, firstname, lastname, height, weight);
     }
 
+    @Override
+    public String toString() {
+        return "person.Person{" +
+                "age=" + age +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return Integer.compare(this.getAge(), o.getAge());
+    }
 }

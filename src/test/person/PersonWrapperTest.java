@@ -1,4 +1,9 @@
+package person;
+
 import org.junit.jupiter.api.Test;
+import person.Person;
+import person.PersonWrapper;
+import person.Student;
 
 import java.util.List;
 
@@ -8,8 +13,6 @@ class PersonWrapperTest {
 
     Person p1 = new Person(20, "A", "B", 160, 60);
     Student s1 = new Student(15, "C", "D", 110, 40);
-
-    Vector v1 = new Vector(5.0, 5.0, 5.0);
     PersonWrapper<Person> tester = new PersonWrapper<Person>();
 
     @Test
@@ -34,7 +37,7 @@ class PersonWrapperTest {
 
 //    @Test
 //    void shallowCopyWithWrongSubclass() {
-//        List<Person>  studentList = tester.shallowCopy(v1,5);
+//        List<person.Person>  studentList = tester.shallowCopy(v1,5);
 //        assertEquals(v1.getAge(), studentList.get(0).getAge());
 //
 //        studentList.get(2).setAge(50);
