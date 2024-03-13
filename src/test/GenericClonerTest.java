@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import person.Person;
+import person.Student;
 
 import java.util.List;
 
