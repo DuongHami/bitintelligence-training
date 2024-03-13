@@ -1,10 +1,24 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 class PersonTest {
     Person p1 = new Person(20, "A", "B", 160, 60);
     Person p2 = new Person(20, "A", "B", 160, 60);
     Person p3 = new Person(25, "C", "D", 180, 100);
+
+    /**
+     * Checking if Person objects with identical values can be used for the same key
+     */
+    @Test
+    void hashMapTest(){
+        HashMap<Person, Integer> personMap = new HashMap<Person, Integer>();
+        personMap.put(p1, p1.getAge());
+
+        assertEquals(personMap.get(p1), 20);
+        assertEquals(personMap.get(p2), 20);
+    }
 
     /**
      * Positiv test by comparison with assertEquals
@@ -46,21 +60,4 @@ class PersonTest {
         assertNotEquals(p1, p3);
     }
 
-//    @Test
-//    void shallowCopy(){
-//        Person[] personlist = p1.shallowCopy(5);
-//        assertEquals(p1.getAge(), personlist[0].getAge());
-//
-//        personlist[3].setAge(50);
-//        assertEquals(p1.getAge(), personlist[4].getAge());
-//    }
-//
-//    @Test
-//    void shallowCopyStudent(){
-//        Student susi = new Student(25, "C", "D", 180, 100);
-//        Person[] personlist = susi.shallowCopy(3);
-//        for(int i = 0; i < 3; i++){
-//            System.out.println(personlist[i]);
-//        }
-//    }
 }

@@ -60,7 +60,7 @@ public class Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Person person)) return false;
-        return Objects.equals(age, person.age) &&
+        return  Objects.equals(age, person.age) &&
                 Objects.equals(firstname, person.firstname) &&
                 Objects.equals(lastname, person.lastname) &&
                 Objects.equals(height, person.height) &&
@@ -72,19 +72,4 @@ public class Person {
         return Objects.hash(age, firstname, lastname, height, weight);
     }
 
-//    public Person[] shallowCopy(int copynums){
-//        Person[] personlist = new Person[copynums];
-//        Arrays.fill(personlist, this);
-//        return personlist;
-//    }
-//
-//    public Person deepCopy(){
-//        return new Person(
-//                this.getAge(),
-//                this.getFirstname(),
-//                this.getLastname(),
-//                this.getHeight(),
-//                this.getWeight()
-//        );
-//    }
 }
