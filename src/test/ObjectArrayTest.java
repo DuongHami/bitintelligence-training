@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class IntArrayTest {
+class ObjectArrayTest {
 
-    IntArray array = new IntArray(3);
-    int[] test = new int[]{4, 0, 0};
+    ObjectArray<Integer> array = new ObjectArray<>(3);
+    Integer[] test = new Integer[]{4, null, null};
 
     @Test
     void add() {

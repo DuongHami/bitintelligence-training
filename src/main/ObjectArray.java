@@ -1,13 +1,13 @@
-public class IntArray {
+public class ObjectArray<T>{
 
-    int[] array;
+    T[] array;
     int pointer;
 
-    public int[] getArray() {
+    public T[] getArray() {
         return array;
     }
 
-    public void setArray(int[] array) {
+    public void setArray(T[] array) {
         this.array = array;
     }
 
@@ -23,8 +23,8 @@ public class IntArray {
      * Constructor
      * @param size of the int array
      */
-    public IntArray(int size){
-        this.array = new int[size];
+    public ObjectArray(int size){
+        this.array = (T[]) new Object[size];
         this.pointer = 0;
     }
 
@@ -33,12 +33,12 @@ public class IntArray {
      * If the array if full: the size is doubled and the numbers are transfered into the new array
      * @param elem int to be added to the array
      */
-    public void add(int elem){
+    public void add(T elem){
         if(this.getPointer() < this.getArraySize()){
             this.getArray()[this.getPointer()] = elem;
             this.setPointer(this.getPointer() + 1);
         } else {
-            int[] newArray = new int[this.getArraySize()*2];
+            T[] newArray = (T[]) new Object[this.getArraySize()*2];
             for(int i = 0; i < this.getArraySize(); i++){
                 newArray[i] = this.getArray()[i];
             }
@@ -53,11 +53,6 @@ public class IntArray {
      * @return int how many elems were added to the array
      */
     public int getElementCount(){
-//        int counter = 0;
-//        for(int elem : this.getArray()){
-//            if(elem == 0)counter++;
-//        }
-//        return counter;
         return this.getPointer();
     }
 
@@ -66,11 +61,8 @@ public class IntArray {
      * @param position index to get the element in the array from
      * @return int from the array
      */
-    public int get(int position){
-        if(position < this.getArraySize())
-            return this.getArray()[position];
-        System.out.println("Out of bounds");
-        return 0;
+    public T get(int position){
+        return this.getArray()[position];
     }
 
     /**
@@ -85,7 +77,7 @@ public class IntArray {
      * Print the array with its current values
      */
     public void print(){
-        for(int elem : this.getArray()){
+        for(T elem : this.getArray()){
             System.out.print(elem + " ");
         }
         System.out.println();
