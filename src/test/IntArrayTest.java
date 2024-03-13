@@ -29,6 +29,15 @@ class IntArrayTest {
     }
 
     @Test
+    void getElementCountWithOverflow() {
+        array.add(1);
+        array.add(2);
+        array.add(3);
+        array.add(4);
+        assertEquals(array.getElementCount(), 4);
+    }
+
+    @Test
     void get() {
         array.add(2);
         assertEquals(array.get(0), 2);

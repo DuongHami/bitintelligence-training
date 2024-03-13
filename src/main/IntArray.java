@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Objects;
-
 public class IntArray {
 
     int[] array;
@@ -33,7 +30,7 @@ public class IntArray {
 
     /**
      * Add a new int into the array
-     * If the array if full the size it doubled and the numbers are transfered into the new array
+     * If the array if full: the size is doubled and the numbers are transfered into the new array
      * @param elem int to be added to the array
      */
     public void add(int elem){
@@ -92,25 +89,6 @@ public class IntArray {
             System.out.print(elem + " ");
         }
         System.out.println();
-    }
-
-    public static void main(String[] args) {
-        IntArray test = new IntArray(3);
-        test.print();
-        test.add(3);
-        test.print();
-        test.add(6);
-        test.print();
-        test.add(5);
-        test.print();
-
-        test.add(1);
-        test.print();
-
-        System.out.println("Length of the current array: " + test.getArraySize());
-        System.out.println("Element in index 2: " + test.get(2));
-        System.out.println("Added numbers: " + test.getElementCount());
-
     }
 
 }
