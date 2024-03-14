@@ -1,3 +1,5 @@
+package csv.entity;
+
 import java.util.Objects;
 
 public class Vector {
@@ -77,7 +79,7 @@ public class Vector {
     /**
      *
      * @param v2 vector to be added to the current object
-     * @return new Vector object with Vector v1 + Vector v2
+     * @return new csv.entity.Vector object with csv.entity.Vector v1 + csv.entity.Vector v2
      */
     public Vector addition ( Vector v2){
         return new Vector (
@@ -90,7 +92,7 @@ public class Vector {
     /**
      *
      * @param v2 vector to be substracted to the current object
-     * @return new Vector object with Vector v1 - Vector v2
+     * @return new csv.entity.Vector object with csv.entity.Vector v1 - csv.entity.Vector v2
      */
     public Vector substraction (Vector v2){
         return new Vector (
@@ -103,7 +105,7 @@ public class Vector {
     /**
      *
      * @param v2 vector to be calculated the cross product with
-     * @return new Vector object with Vector v1 x Vector v2
+     * @return new csv.entity.Vector object with csv.entity.Vector v1 x csv.entity.Vector v2
      */
     public Vector kreuzprodukt (Vector v2){
         return new Vector (
@@ -125,7 +127,7 @@ public class Vector {
     /**
      *
      * @param scalar double to multiply the vector with
-     * @return new Vector object with Vector v1 * scalar
+     * @return new csv.entity.Vector object with csv.entity.Vector v1 * scalar
      */
     public Vector multiplikation (double scalar){
         return new Vector (
@@ -138,7 +140,7 @@ public class Vector {
     /**
      *
      * @param scalar double to divide the vector with
-     * @return new Vector object with Vector v1 / scalar
+     * @return new csv.entity.Vector object with csv.entity.Vector v1 / scalar
      */
     public Vector division (double scalar){
         return new Vector (
@@ -160,11 +162,11 @@ public class Vector {
 
     /**
      *
-     * @return stringified form of a Vector object
+     * @return stringified form of a csv.entity.Vector object
      */
     @Override
     public String toString() {
-        return "Vector{" +
+        return "csv.entity.Vector{" +
                 "x=" + x +
                 ", y=" + y +
                 ", z=" + z +
