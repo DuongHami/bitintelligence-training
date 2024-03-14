@@ -21,7 +21,7 @@ public class CSVParser<T> {
      */
     public boolean parseable(T object) throws CSVEntityAnnotationNotPresentException {
         if(Objects.isNull(object)){
-            return false;
+            throw new NullPointerException();
         }
         if(object.getClass().isAnnotationPresent(CSVEntity.class)){
             return true;
@@ -32,17 +32,29 @@ public class CSVParser<T> {
     /**
      * Get all the fields of a class that have the CSVField anotation
      * @param object to get the parseable fields from
-     * @return List<Field> with all the parseable fields
+     * @return List<Field> with all the parseable fields, null if there are no parseable fields
      */
-    public List<Field> getParseableFields(T object){
-        List<Field> parseableFields = new ArrayList<>();
-        Field[] fields = object.getClass().getDeclaredFields();
-        for (Field f : fields){
-            if(f.isAnnotationPresent(CSVField.class)){
-                parseableFields.add(f);
+    public List<Field> getParseableFields(T object) {
+        try{
+            if(parseable(object)){
+                List<Field> parseableFields = new ArrayList<>();
+                Field[] fields = object.getClass().getDeclaredFields();
+                for (Field f : fields){
+                    if(f.isAnnotationPresent(CSVField.class)){
+                        parseableFields.add(f);
+                    }
+                }
+                return parseableFields;
+            } else {
+                return null;
             }
+        } catch (CSVEntityAnnotationNotPresentException e){
+            System.out.println("Class doesn't have parseable fields");
+            return null;
+        } catch (NullPointerException e) {
+            System.out.println("Object is null");
+            return null;
         }
-        return parseableFields;
     }
 
     /**
@@ -53,10 +65,42 @@ public class CSVParser<T> {
     public String getHeader(T object){
         final StringBuilder sb = new StringBuilder();
         List<Field> parseableFields = getParseableFields(object);
-        for(Field f : parseableFields) {
-            sb.append(f.getName());
-            if(f != parseableFields.getLast())
-                sb.append(SEPERATOR);
+        if(parseableFields != null){
+            for(Field f : parseableFields) {
+                sb.append(f.getName());
+                if(f != parseableFields.getLast())
+                    sb.append(SEPERATOR);
+            }
+            return sb.toString();
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     *
+     * @param object to be parsed into a string
+     * @return String of the parseable values in the object in csv format
+     */
+    public String parseSingleObject(T object){
+        List<Field> parseableFields = getParseableFields(object);
+        if (parseableFields == null){
+            return null;
+        }
+        final StringBuilder sb = new StringBuilder();
+
+        for (Field f : parseableFields) {
+
+            try {
+                f.setAccessible(true);
+                Object value = f.get(object);
+                sb.append(value);
+                if(f != parseableFields.getLast()){
+                    sb.append(SEPERATOR);
+                }
+            } catch (IllegalAccessException e) {
+                System.out.println("Unable to access field");
+            }
         }
         return sb.toString();
     }
@@ -74,7 +118,6 @@ public class CSVParser<T> {
                 sb.append(header);
 
                 sb.append("\n");
-//                sb.append(System.lineSeparator());
 
                 String body = parseSingleObject(object);
                 System.out.println(body);
@@ -82,30 +125,6 @@ public class CSVParser<T> {
             }
         } catch (CSVEntityAnnotationNotPresentException e){
             System.out.println("Entity is not parseable");
-        }
-        return sb.toString();
-    }
-
-    /**
-     *
-     * @param object to be parsed into a string
-     * @return String of the parseable values in the object in csv format
-     */
-    public String parseSingleObject(T object){
-        List<Field> parseableFields = getParseableFields(object);
-        final StringBuilder sb = new StringBuilder();
-
-        for (Field f : parseableFields) {
-            f.setAccessible(true);
-            try {
-                Object value = f.get(object);
-                sb.append(value);
-                if(f != parseableFields.getLast()){
-                    sb.append(SEPERATOR);
-                }
-            } catch (IllegalAccessException e) {
-                System.out.println("Unable to access field");
-            }
         }
         return sb.toString();
     }

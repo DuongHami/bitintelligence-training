@@ -1,14 +1,17 @@
 package csv;
 
+import csv.annotations.CSVField;
 import csv.entity.Car;
 import csv.entity.Vector;
 import csv.exception.CSVEntityAnnotationNotPresentException;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.AfterEach;
+//import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+//import java.io.ByteArrayOutputStream;
+//import java.io.PrintStream;
+import java.lang.reflect.Field;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,7 +45,7 @@ class CSVParserTest {
 
     /**
      * Positive test for parseable
-     * @throws CSVEntityAnnotationNotPresentException
+     * @throws CSVEntityAnnotationNotPresentException error if class doesn't have the CSVEntity annotation
      */
     @Test
     void parseable() throws CSVEntityAnnotationNotPresentException {
@@ -60,40 +63,89 @@ class CSVParserTest {
     }
 
     /**
-     *
-     * @throws CSVEntityAnnotationNotPresentException
+     * Negative test for empty object
+     * @throws CSVEntityAnnotationNotPresentException error if class doesn't have the CSVEntity annotation
      */
     @Test
     void parseNull() throws CSVEntityAnnotationNotPresentException {
-        assertFalse(parser.parseable(nullCar));
+//        assertFalse(parser.parseable(nullCar));
+        assertThrows(NullPointerException.class, () -> {
+           parser.parseable(nullCar);
+        });
     }
 
+    /**
+     * Positive test for getHeader
+     */
     @Test
     void getHeader() {
         String header = "brand;colour;numDoors;price";
         assertEquals(header, parser.getHeader(mercedes));
     }
 
+    /**
+     * Negative test  for no header
+     */
+    @Test
+    void getNullHeader() {
+        assertNull(vectorParser.getHeader(vector));
+    }
+
+    /**
+     * Positive test for parseSingleObject
+     */
     @Test
     void parseSingleObject() {
         assertEquals("Mercedes;Silver;4;23000", parser.parseSingleObject(mercedes));
     }
 
+    /**
+     * Negative test for parseSingleObject
+     */
     @Test
-    void getParseableFields() {
-//        List<Field> parseableFields = parser.getParseableFields(mercedes);
-//        for(Field f : parseableFields){
-//            assertTrue(f.isAnnotationPresent(CSVField.class));
-//        }
+    void parseObjectWithNoParseableFields() {
+        assertNull(vectorParser.parseSingleObject(vector));
     }
 
+    /**
+     * Positive test for getParseableFields
+     */
+    @Test
+    void getParseableFields() {
+        List<Field> parseableFields = parser.getParseableFields(mercedes);
+        for(Field f : parseableFields){
+            assertTrue(f.isAnnotationPresent(CSVField.class));
+        }
+    }
+
+    @Test
+    void noParseableFields() {
+        List<Field> parseableFields = vectorParser.getParseableFields(vector);
+        assertNull(parseableFields);
+    }
+
+    /**
+     * Positive test for parse
+     */
     @Test
     void parse() {
         String singleParse = parser.parse(mercedes);
-        assertEquals("brand;colour;numDoors;price\nMercedes;Silver;4;23000", singleParse);
+        assertEquals("brand;colour;numDoors;price" +
+                "\nMercedes;Silver;4;23000", singleParse);
 //        assertEquals("brand;colour;numDoors;price", out.toString());
     }
 
+    /**
+     *
+     */
+    @Test
+    void parseOfNoneParsableObject(){
+        assertEquals("", vectorParser.parse(vector));
+    }
+
+    /**
+     * Positive test for parseList
+     */
     @Test
     void parseList() {
         String listParse = parser.parseList(carlist);
@@ -103,9 +155,17 @@ class CSVParserTest {
                 "\nOpel;Weiß;4;10000", listParse);
     }
 
+    /**
+     * Negative test for parseList with empty list
+     */
     @Test
     void parseEmptyList() {
         String listParse = vectorParser.parseList(vectorList);
         assertEquals("Empty List", listParse);
+    }
+
+    @Test
+    void tester(){
+
     }
 }
