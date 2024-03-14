@@ -65,18 +65,25 @@ public class CSVParser<T> {
      * Parse a single Object into the CSV format
      * @param object to be parsed
      */
-    public void parse(T object) {
+    public String parse(T object) {
+        StringBuilder sb = new StringBuilder();
         try{
             if(parseable(object)){
                 String header = getHeader(object);
                 System.out.println(header);
+                sb.append(header);
+
+                sb.append("\n");
+//                sb.append(System.lineSeparator());
+
                 String body = parseSingleObject(object);
                 System.out.println(body);
+                sb.append(body);
             }
         } catch (CSVEntityAnnotationNotPresentException e){
             System.out.println("Entity is not parseable");
         }
-
+        return sb.toString();
     }
 
     /**
@@ -107,16 +114,25 @@ public class CSVParser<T> {
      * Parse a list of objects into a csv format
      * @param list of objects
      */
-    public void parseList(T[] list) {
+    public String parseList(T[] list) {
+        StringBuilder sb = new StringBuilder();
         if (list.length == 0){
             System.out.println("Empty List");
+            return "Empty List";
         } else {
             String header = getHeader(list[0]);
             System.out.println(header);
+            sb.append(header);
+            sb.append("\n");
             for(T elem : list){
                 String body = parseSingleObject(elem);
                 System.out.println(body);
+                sb.append(body);
+                if(elem != list[list.length - 1]){
+                    sb.append("\n");
+                }
             }
         }
+        return sb.toString();
     }
 }
