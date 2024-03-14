@@ -3,6 +3,7 @@ import lombok.AllArgsConstructor;
 //import lombok.Getter;
 //import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,7 +45,7 @@ public class Animal {
 
     public static List<Animal> sortBy4LegsAndUnevenAge(List<Animal> animals){
         return animals.stream()
-                .filter(animal -> animal.getNumLegs().equals(2))
+                .filter(animal -> animal.getNumLegs().equals(4))
                 .filter(animal -> animal.getAge() % 2 == 1)
                 .collect(Collectors.toList());
     }
